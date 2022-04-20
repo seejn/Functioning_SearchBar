@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Bar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .search-container{
+            transition: 100ms ease-in-out;
+            margin: 0 auto;
+            width: 50%;
+            padding: 20px;
+            position: relative;
+        }
+        .search-container > *{
+            margin: 5px 0;
+        }
+        #searchbar{
+            width: 100%;
+            padding: ;
+            display: flex;
+        }
+        ul{
+            width: 50%;
+            list-style: none;
+            background: grey;
+            position: absolute;
+            border-radius: 5px;
+        }
+        ul li{
+            padding: 5px 15px;
+            color: white;
+            font-weight: 1000;
+            transition: 250ms ease-in-out;
+            display: none;
+        }
+        ul li:hover{
+            transform: translateX(-5px);
+            cursor: pointer;
+        }
+        li.display-active{
+            display: block;
+        }
+        .search-container{
+            background-color: #ddd;
+        }
+        #searchbar input[name='search']{
+            width: 100%;
+            padding: 6px;
+            font-size: 17px;
+            border: none;
+        }
+        #searchbar button{
+            margin-left: 5px;
+            padding: 6px 10px;
+            background: rgb(195, 193, 193);
+            font-size: 17px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <div id="searchbar">
+            <input type="search" name="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </div>
+        <ul id="searchItems">
+            <li>seejn</li>
+            <li>hari</li>
+            <li>shyam</li>
+            <li>shishil</li>
+            <li>sijan</li>
+            <li>prabean</li>
+            <li>sanis</li>
+            <li>shah</li>
+            <li>maharjan</li>
+            <li>random</li>
+            <li>babish</li>
+            <li>ramesh</li>
+            <li>bishal</li>
+            <li>ravi</li>
+            <li>ardeep</li>
+            <li>samir</li>
+            <li>binita</li>
+            <li>ronish</li>
+        </ul>
+    </div>
+    <script src="../jquery-3.5.1.min.js"></script>
+    <script>
+        $("#searchbar input[name='search']").on('keyup', function(){
+            var value = $(this).val().toLowerCase();
+            $('#searchItems li').filter(function(){
+                if(value == ""){
+                    $(this).removeClass('display-active');
+                }else if($(this).text().toLowerCase().indexOf(value) > -1){
+                    $(this).addClass('display-active');
+                }else{
+                    $(this).removeClass('display-active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
